@@ -12,7 +12,7 @@ module.exports = (app) => {
   app.use(bodyParser.urlencoded({ extended: true }));
 
   // Connection with MongoDB
-  mongoose.connect(DB.CONNECTION_URI, {
+  await mongoose.connect(DB.CONNECTION_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   });
