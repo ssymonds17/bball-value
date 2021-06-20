@@ -121,7 +121,9 @@ module.exports = (app) => {
 
   // Get all season records and order to return top 100 playoff scores
   router.get('/rankings/playoffs', (req, res) => {
-    Seasons.find()
+    Seasons.find({
+      rs_tm: { $ne: 'Z-TOT' }
+    })
       .sort({ po_score: -1 })
       .limit(100)
       .then((ranking) => {
