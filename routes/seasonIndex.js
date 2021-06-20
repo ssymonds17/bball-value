@@ -9,6 +9,7 @@ module.exports = (app) => {
   // Get season index data to be shown on season index page
   router.get('/', (req, res) => {
     SeasonIndexes.find()
+      .sort({ year: -1 })
       .then((index) => {
         res.status(200).json(index);
       })
