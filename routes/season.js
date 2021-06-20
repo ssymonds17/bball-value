@@ -22,7 +22,7 @@ module.exports = (app) => {
       });
   });
 
-  // Get individual team records based on franchise code and year
+  // Get player records for individual team based on franchise code and year
   router.get('/teams/:franchiseCode/:year', (req, res) => {
     Seasons.find({
       franchise: req.params.franchiseCode,

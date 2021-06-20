@@ -6,10 +6,10 @@ const Teams = Models.Team;
 module.exports = (app) => {
   app.use('/api/v1/teams', router);
 
-  // Get a single team record using franchise code and year
-  router.get('/:franchiseCode/:year', (req, res) => {
+  // Get a single team record (franchise code) using team abbreviation and year
+  router.get('/:teamAbbrev/:year', (req, res) => {
     Teams.find({
-      franchise_code: req.params.franchiseCode,
+      team: req.params.teamAbbrev,
       year: req.params.year
     })
       .then((team) => {
