@@ -22,6 +22,7 @@ module.exports = (app) => {
   // Get all time players list and limit to 250
   router.get('/greatest', (req, res) => {
     Players.find()
+      .sort({ rank: 1 })
       .limit(250)
       .then((players) => {
         res.status(200).json(players);
