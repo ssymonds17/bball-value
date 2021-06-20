@@ -23,6 +23,7 @@ module.exports = (app) => {
     FranchiseLists.find({
       last_year: 2020
     })
+      .sort({ franchise: 1 })
       .then((franchises) => {
         res.status(200).json(franchises);
       })
@@ -37,6 +38,7 @@ module.exports = (app) => {
     FranchiseLists.find({
       last_year: { $ne: 2020 }
     })
+      .sort({ franchise: 1 })
       .then((franchises) => {
         res.status(200).json(franchises);
       })
