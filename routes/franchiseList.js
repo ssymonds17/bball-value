@@ -33,12 +33,26 @@ module.exports = (app) => {
       });
   });
 
-  // Gte list of defunct franchises
+  // Get list of defunct franchises
   router.get('/defunct', (req, res) => {
     FranchiseLists.find({
       last_year: { $ne: 2020 }
     })
       .sort({ franchise: 1 })
+      .then((franchises) => {
+        res.status(200).json(franchises);
+      })
+      .catch((e) => {
+        console.error(e);
+        res.status(500).send('Error: ' + e);
+      });
+  });
+
+  // Get franchise data based on franchise code (first and last year)
+  router.get('/:franchiseCode', (req, res) => {
+    FranchiseLists.find({
+      franchise_code: req.params.franchiseCode
+    })
       .then((franchises) => {
         res.status(200).json(franchises);
       })
