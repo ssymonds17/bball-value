@@ -23,15 +23,15 @@ This website is a showcase for this information in a simple and easily navigable
 
   ___
 
-### Running the application
+### Starting the server
 
-Begin the application by running the following code: 
+Begin the server by running the following code: 
 
 ```sh
-npm start
+npm run devstart
 ```
 
-This launches DevTools on port 3000. 
+This launches the server on port 8080. 
    
    [client side code]: <https://github.com/ssymonds17/bball-value-client/>
    [live version]: <https://bball-value.netlify.app/>
